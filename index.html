@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
+  <title>Trop shy pour aborder</title>
+  <!-- Lien vers la police Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>✨ Coucou toi ! ✨</h1>
+    <div class="container-text">
+      <p style="text-align: left;">Tu es d'une beauté sans pareil, dès que j'ai posé les yeux sur toi, mon âme fût envoutée..</p>
+      <p style="padding-bottom: 5px;">J'aimerais beaucoup parler avec toi alors voici mes contacts, ou réponds moi directement 😊</p>
+    </div>
+    <form id="contact-form">
+      <div style="margin-top: 35px; margin-bottom: 20px;">
+        <input type="text" id="user-text" placeholder="Ta réponse.." style="padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; width: 300px;" required>
+        <button type="submit" style="padding: 10px 20px; font-size: 16px; background-color: #ff0000; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Envoyer
+        </button>
+      </div>
+    </form>
+    <a href="https://www.instagram.com/_n.l_83" class="instagram" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@nicolfvr" class="tiktok" target="_blank">TikTok</a>
+    <div class="number">📞 +33 6 13 31 39 51</div>
+  </div>
+
+  <script type="text/javascript">
+    (function(){
+      emailjs.init("K9uzUe24F7QY1nPSY");
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var userMessage = document.getElementById('user-text').value;
+
+      emailjs.send('service_bk7xibe', 'template_hl2edii', {
+        user_message: userMessage
+      }).then(function(response) {
+         alert('Message envoyé avec succès !');
+
+         document.getElementById('user-text').value = "";
+      }, function(error) {
+         alert('Erreur lors de l\'envoi : ' + error.text);
+      });
+    });
+  </script>
+
+</body>
+</html>
